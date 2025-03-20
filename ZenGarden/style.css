@@ -1,213 +1,203 @@
 /* Soft Pastel CSS Zen Garden Theme */
 
 /* General Reset */
-html, body {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	background: #f8f8f8 url('https://www.transparenttextures.com/patterns/diagonal-stripes.png');
-	color: #444;
-	font-family: 'Poppins', sans-serif;
-	line-height: 1.6;
-  }
-  
-  /* Layout */
-  .page-wrapper {
-	max-width: 1200px; /* Ensures a wide layout for desktop */
-	margin: 500px auto 20px auto; /* Increased top margin to fully prevent overlap */
-	padding: 20px;
-	background-color: #fff;
-	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-	border-radius: 10px;
-	display: flex;
-	flex-direction: row; /* Default: row layout */
-	justify-content: space-between;
-  }
-  
-  /* Media query for smaller screens */
-  @media (max-width: 768px) {
-	.page-wrapper {
-	  max-width: 1000px; /* Adjust width for smaller screens */
-	  flex-direction: column; /* Switches to stacked layout */
-	  align-items: center; /* Centers content when stacked */
-	  margin-top: 600px; /* Further increases spacing for smaller screens */
-	}
-  }
-  
-/* Position Header at the Top */
-header {
-    position: absolute; /* Positions it at the very top */
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100%;
-    text-align: center;
-    padding: 50px 0; /* Increased padding to allow for readability */
-    border-radius: 10px;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-    z-index: 1000; /* Ensures it stays above other content */
-    overflow: hidden; /* Prevents background overflow */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background: #f8f8f8 url('https://www.transparenttextures.com/patterns/diagonal-stripes.png');
+  color: #444;
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
 }
 
-/* Pseudo-element to control background opacity */
+/* Layout */
+.page-wrapper {
+  max-width: 1200px; /* Wide layout for desktops */
+  margin: 350px auto 20px auto; /* Places content below the banner */
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+
+  /* Flex layout for main content + sidebar */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  .page-wrapper {
+    max-width: 1000px; /* Adjust width for smaller screens */
+    flex-direction: column; /* Stack columns vertically */
+    align-items: center; /* Center content when stacked */
+    margin-top: 400px; /* Additional spacing under the banner for smaller screens */
+  }
+}
+
+/* Position Header as a Banner at the Top */
+header {
+  position: absolute; /* Positions it at the very top */
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  text-align: center;
+  padding: 50px 0; /* Increased padding for readability */
+  border-radius: 10px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000; /* Above other content */
+  overflow: hidden; /* Prevents background overflow */
+}
+
+/* Pseudo-element to control banner background */
 header::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url(images/zengarden.jpg) center/cover no-repeat;
-    opacity: 0.5; /* Adjust opacity (0.1 = more transparent, 1 = fully visible) */
-    z-index: -1; /* Sends background behind text */
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url(images/zengarden.jpg) center/cover no-repeat;
+  opacity: 0.5; /* Adjust (0.1 = more transparent, 1 = fully visible) */
+  z-index: -1; /* Behind the text */
 }
 
 /* Header Text Styling */
 header h1 {
-    font-size: 3rem; /* Change this value to make h1 bigger or smaller */
-    color: #660033; /* Dark Burgundy for contrast */
-    text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.8); /* White shadow for better readability */
-    position: relative; /* Ensures text stays above the background */
+  font-size: 3rem; /* Adjust as needed */
+  color: #660033; /* Dark Burgundy for contrast */
+  text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.8); /* White shadow for readability */
+  position: relative;
 }
 
 header h2 {
-    font-size: 2rem; /* Change this value to make h2 bigger or smaller */
-    color: #660033; /* Dark Burgundy for contrast */
-    text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.8); /* White shadow for better readability */
-    position: relative; /* Ensures text stays above the background */
+  font-size: 2rem; /* Adjust as needed */
+  color: #660033;
+  text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.8);
+  position: relative;
 }
 
+/* Introduction Text (Below Banner) */
+#intro-text {
+  position: static; /* Remove absolute positioning */
+  width: 90%;
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px auto; /* Centered below the banner */
+  text-align: center;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ddd;
+  z-index: 998; /* Not really needed in normal flow */
+}
 
-  
-  /* Introduction Text Below Header */
-  #intro-text {
-	position: absolute;
-	top: 90px; /* Positioned below the main header */
-	left: 50%;
-	transform: translateX(-50%);
-	width: 90%;
-	background: #ffffff;
-	border-radius: 10px;
-	padding: 20px;
-	text-align: center;
-	box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-	border: 1px solid #ddd;
-	z-index: 998;
-  }
-  
-  /* The Road to Enlightenment at the Top */
-  #zen-preamble {
-	position: absolute;
-	top: 180px; /* Below the introduction text */
-	left: 50%;
-	transform: translateX(-50%);
-	width: 90%;
-	background: #ffffff;
-	border-radius: 10px;
-	padding: 20px;
-	margin-bottom: 20px;
-	box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-	border: 1px solid #ddd;
-	z-index: 999; /* Keeps it above other content */
-  }
-  
-  @media (max-width: 768px) {
-	#zen-preamble {
-	  top: 200px; /* Adjusts spacing for mobile */
-	  padding: 15px;
-	}
-	#intro-text {
-	  top: 100px;
-	}
-  }
-  
-  /* Main Content */
-  .main-content {
-	flex: 3;
-  }
-  
-  /* Section Boxes */
-  .section-box {
-	background: #ffffff;
-	border-radius: 10px;
-	padding: 20px;
-	margin: 20px 0;
-	box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-	border: 1px solid #ddd;
-  }
-  
-  /* Sidebar - Move to Right Side */
-  .sidebar {
-	flex: 1;
-	background: #f9f9f9;
-	padding: 15px;
-	border-radius: 10px;
-	box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-	width: 300px;
-	order: 2;
-	margin-left: 20px;
-  }
-  
-  .sidebar h3 {
-	color: #660033;
-	font-size: 1.3em;
-  }
-  
-  .sidebar ul {
-	list-style: none;
-	padding: 0;
-  }
-  
-  .sidebar li {
-	padding: 8px 0;
-	border-bottom: 1px solid #ddd;
-  }
-  
-  .sidebar li:last-child {
-	border-bottom: none;
-  }
-  
-  /* Typography */
-  p {
-	font-size: 1.1em;
-	text-align: justify;
-  }
-  
-  h3 {
-	font-size: 1.6em;
-	color: #660033;
-	margin-top: 20px;
-	text-transform: uppercase;
-  }
-  
-  /* Links */
-  a {
-	color: #28a99e;
-	text-decoration: none;
-	transition: color 0.3s ease;
-  }
-  
-  a:hover {
-	color: #28a99e;
-	text-decoration: underline;
-  }
-  
-  /* Footer */
-  footer {
-	text-align: center;
-	padding: 20px;
-	margin-top: 40px;
-	background: #ffffff;
-	border-radius: 10px;
-	box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-  }
-  
-  footer a {
-	margin: 10px 0;
-  }
-  
-  
-  
+/* The Road to Enlightenment Section */
+#zen-preamble {
+  position: static; /* Remove absolute positioning */
+  width: 90%;
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px auto; /* Also centered in normal flow */
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ddd;
+  z-index: 999;
+}
+
+/* Main Content (Flex: 3) */
+.main-content {
+  flex: 3;
+}
+
+/* Sidebar (Flex: 1) */
+.sidebar {
+  flex: 1;
+  background: #f9f9f9;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  order: 2;
+  margin-left: 20px; /* Space between main content and sidebar */
+}
+
+/* Provide extra right-side space for #zen-summary and #zen-preamble */
+#zen-summary,
+#zen-preamble {
+  margin-right: 2rem; /* Adjust the value as desired */
+}
+
+/* Sidebar Sub-Elements */
+.sidebar h3 {
+  color: #660033;
+  font-size: 1.3em;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  padding: 8px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.sidebar li:last-child {
+  border-bottom: none;
+}
+
+/* Section Boxes */
+.section-box {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px 0;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ddd;
+}
+
+/* Typography */
+p {
+  font-size: 1.1em;
+  text-align: justify;
+}
+
+h3 {
+  font-size: 1.6em;
+  color: #660033;
+  margin-top: 20px;
+  text-transform: uppercase;
+}
+
+/* Links */
+a {
+  color: #28a99e;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #28a99e;
+  text-decoration: underline;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+footer a {
+  margin: 10px 0;
+}
