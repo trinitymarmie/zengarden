@@ -97,7 +97,7 @@ header h2 {
 /* The Road to Enlightenment Section */
 #zen-preamble {
   position: static; /* Remove absolute positioning */
-  width: 90%;
+  width: 80%;
   background: #ffffff;
   border-radius: 10px;
   padding: 20px;
@@ -107,21 +107,32 @@ header h2 {
   z-index: 999;
 }
 
+@media (max-width: 768px) {
+  #zen-preamble {
+    margin: 0 auto;
+  }
+}
+
 /* Main Content (Flex: 3) */
 .main-content {
   flex: 3;
+  /* Put main content to the right of sidebar: */
+  order: 2;
 }
 
 /* Sidebar (Flex: 1) */
 .sidebar {
   flex: 1;
+  width: 300px;
   background: #f9f9f9;
   padding: 15px;
-  border-radius: 10px;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-  width: 300px;
-  order: 2;
-  margin-left: 20px; /* Space between main content and sidebar */
+
+  /* Move it to the LEFT in the flex container: */
+  order: 1;
+
+  /* Give it right margin instead of left margin: */
+  margin-right: 20px;
+  margin-left: 0;
 }
 
 /* Provide extra right-side space for #zen-summary and #zen-preamble */
@@ -130,6 +141,11 @@ header h2 {
   margin-right: 2rem; /* Adjust the value as desired */
 }
 
+@media (max-width: 768px) {
+  #zen-summary {
+    margin-top: 3rem;
+  }
+}
 /* Sidebar Sub-Elements */
 .sidebar h3 {
   color: #660033;
